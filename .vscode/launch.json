@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run Employee Management Spring Boot",
+            "request": "launch",
+            "mainClass": "com.example.employeemanagement.EmployeeManagementApplication",
+            "projectName": "employee-management"
+        }
+    ]
+}

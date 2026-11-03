@@ -35,7 +35,12 @@ buildNumber.properties
 .classpath
 .project
 .settings/
-.vscode/
+.vscode/*
+!.vscode/launch.json
+# Local toolchain and nested checkout are not part of this project source.
+/src/main/resources/oracleJdk-27/
+/employee-management-springboot/
+/package-lock.json
 *.suo
 *.ntvs*
 *.njsproj

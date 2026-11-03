@@ -12,6 +12,7 @@ Enterprise REST API backend built with **Spring Boot 3**, **Spring Data JPA**, a
   - `GET /api/employees/search?query=...`: Search by ID or partial/full name (e.g., searching "John" returns all matching records).
   - `PUT /api/employees/{id}`: Edit and update employee information in MySQL.
   - `DELETE /api/employees/{id}?permanent=false`: Soft delete (`status = 0`) or permanent hard delete.
+  - `DELETE /api/employees`: Permanently delete all employee records.
   - `GET /api/employees/inactive`: View soft-deleted employees (Recycle Bin).
   - `POST /api/employees/{id}/restore`: Restore soft-deleted employee back to active (`status = 1`).
 - **CORS Configured:** Pre-configured for React / frontend clients.
@@ -22,7 +23,8 @@ Enterprise REST API backend built with **Spring Boot 3**, **Spring Data JPA**, a
 ## 🚀 How to Run
 
 ### 1. Prerequisites
-- Java JDK 17 or higher
+- Java JDK 25 (the current LTS release)
+- Apache Maven
 - MySQL Server 8.0 running on port 3306 with database `employee_db`
 
 ### 2. Configure Database
@@ -34,6 +36,15 @@ spring.datasource.password=root
 ```
 
 ### 3. Build & Run
+
+On Windows, ensure Java 25 or later and Maven are available in your environment, then run the supplied script from PowerShell or Command Prompt:
+```powershell
+.\run-app.cmd
+```
+
+For VS Code debugging, use **Run and Debug** and select **Run Employee Management Spring Boot**.
+
+Alternatively, if `JAVA_HOME` points to JDK 25 or later:
 ```bash
 mvn clean spring-boot:run
 ```

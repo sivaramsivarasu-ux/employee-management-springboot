@@ -96,6 +96,19 @@ public class EmployeeController {
     }
 
     /**
+     * Permanently delete all employees from the database.
+     * Endpoint: DELETE /api/employees
+     */
+    @DeleteMapping
+    public ResponseEntity<Map<String, Object>> deleteAllEmployees() {
+        long deletedCount = employeeService.hardDeleteAllEmployees();
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", "All employees permanently deleted from database.");
+        response.put("deletedCount", deletedCount);
+        return ResponseEntity.ok(response);
+    }
+
+    /**
      * SEARCH: Search employees by employeeID or partial / full name.
      * If partial name matches multiple employees, returns all of them.
      * Endpoint: GET /api/employees/search?query=john

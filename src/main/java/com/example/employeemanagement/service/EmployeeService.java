@@ -42,6 +42,13 @@ public interface EmployeeService {
     void hardDeleteEmployee(Long id);
 
     /**
+     * Completely remove all employees from the database (hard delete).
+     *
+     * @return the number of employee records deleted
+     */
+    long hardDeleteAllEmployees();
+
+    /**
      * Search employees by Employee ID or partial/full name.
      * Returns all matching active employees.
      */

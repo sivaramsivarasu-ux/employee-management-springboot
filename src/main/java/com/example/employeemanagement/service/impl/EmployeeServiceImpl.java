@@ -133,6 +133,16 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     /**
+     * Completely remove all employees from the database.
+     */
+    @Override
+    public long hardDeleteAllEmployees() {
+        long deletedCount = employeeRepository.count();
+        employeeRepository.deleteAllInBatch();
+        return deletedCount;
+    }
+
+    /**
      * Search employees by Employee ID or partial/full name.
      * If multiple employees match a partial name (e.g. 'John' -> 'John Doe', 'Johnson'),
      * all matches are returned.
